@@ -1,4 +1,10 @@
-
+const path = require('path');
+/**
+ * package.jsonのconfig内のキーを参照
+ *
+ * {@link https://docs.npmjs.com/cli/v7/configuring-npm/package-json#config}
+ */
+const port = process.env.npm_package_config_port;
 /*
  |--------------------------------------------------------------------------
  | Browser-sync config file
@@ -13,9 +19,7 @@
  |
  */
 module.exports = {
-    "ui": {
-        "port": 3001
-    },
+    "ui": false,
     "files": false,
     "watchEvents": [
         "change"
@@ -26,9 +30,11 @@ module.exports = {
     "watchOptions": {
         "ignoreInitial": true
     },
-    "server": false,
+    "server": {
+      baseDir: path.resolve(__dirname, '_public'),
+    },
     "proxy": false,
-    "port": 3000,
+    "port": port,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
