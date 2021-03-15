@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:server": "browser-sync start --config bs-config.js"
+    "dev:server": "browser-sync start --config bs-config.js",
+    "dev:ejs": "ejs-cli -b _src/html/pages/ \"**/*.ejs\" -e \"_src/html/partials/\" -o _public"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
